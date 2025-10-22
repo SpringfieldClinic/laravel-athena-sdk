@@ -8,18 +8,20 @@ readonly class BalanceData extends AthenaData
 {
     public function __construct(
         public ?string $departmentList = null,
-        public ?float $balance = null,
+        public ?float $balance = 0,
+        public ?float $collectionsBalance = null,
         public ?bool $cleanBalance = true,
-        public ?int $providerGroupId = null,
+        public ?int $providerGroupId = 1,
     ) {}
 
     public static function fromArray(array $data): static
     {
         return new static(
             departmentList: $data['departmentlist'] ?? null,
-            balance: (float)$data['balance'] ?? null,
-            cleanBalance: self::toBool($data['cleanbalance'] ?? null),
-            providerGroupId: $data['providergroupid'] ?? null,
+            balance: (float)$data['balance'] ?? 0,
+            collectionsBalance: (float)$data['collectionsbalance'] ?? null,
+            cleanBalance: self::toBool($data['cleanbalance'] ?? true),
+            providerGroupId: $data['providergroupid'] ?? 1,
         );
     }
 }
