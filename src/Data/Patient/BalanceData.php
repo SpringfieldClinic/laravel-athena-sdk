@@ -18,7 +18,7 @@ readonly class BalanceData extends AthenaData
     {
         return new static(
             departmentList: $data['departmentlist'] ?? null,
-            balance: $data['balance'] ? (float)$data['balance'] : null,
+            balance: $data['balance'] ? (float)$data['balance'] : 0,
             collectionsBalance: $data['collectionsbalance'] ? (float)$data['collectionsbalance'] : null,
             cleanBalance: self::toBool($data['cleanbalance'] ?? true),
             providerGroupId: $data['providergroupid'] ?? 1,
