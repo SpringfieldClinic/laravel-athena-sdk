@@ -1,5 +1,5 @@
 {
-    "name": "chrisreedio/laravel-athena-sdk",
+    "name": "springfieldclinic/laravel-athena-sdk",
     "description": "Provides an interface to Athena EHR's API",
     "keywords": [
         "Chris Reed",
