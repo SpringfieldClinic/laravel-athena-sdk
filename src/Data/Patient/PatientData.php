@@ -55,7 +55,7 @@ readonly class PatientData extends AthenaData
 
         public array $customFields = [],
 
-        public array? $balances = [],
+        public ?array $balances = [],
     ) {}
 
     public static function fromArray(array $data): static
@@ -92,7 +92,7 @@ readonly class PatientData extends AthenaData
             primaryProviderId: $data['primaryproviderid'] ?? null,
             privacyInformationVerified: self::toBool($data['privacyinformationverified'] ?? null),
             customFields: $data['customfields'] ?? [],
-            balances: BalanceData::fromArray($data['balances']),
+            balances: BalanceData::fromArray($data['balances']) ?? [],
         );
     }
 }

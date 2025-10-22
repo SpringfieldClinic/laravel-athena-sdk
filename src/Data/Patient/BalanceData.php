@@ -2,13 +2,15 @@
 
 namespace ChrisReedIO\AthenaSDK\Data\Patient;
 
+use ChrisReedIO\AthenaSDK\Data\AthenaData;
+
 readonly class BalanceData extends AthenaData
 {
     public function __construct(
-        public string $departmentList = null,
-        public float $balance = null,
-        public bool $cleanBalance = true,
-        public int $providerGroupId = null,
+        public ?string $departmentList = null,
+        public ?float $balance = null,
+        public ?bool $cleanBalance = true,
+        public ?int $providerGroupId = null,
     ) {}
 
     public static function fromArray(array $data): static
