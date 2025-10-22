@@ -58,7 +58,7 @@ class GetPatient extends Request
         protected ?bool $show2015edcehrtvalues = null,
         protected ?bool $showallclaims = null,
         protected ?bool $showallpatientdepartmentstatus = null,
-        protected ?bool $showbalancedetails = null,
+        protected ?bool $showbalancedetails = true,
         protected ?bool $showcustomfields = true,
         protected ?bool $showfullssn = null,
         protected ?bool $showinsurance = true,
