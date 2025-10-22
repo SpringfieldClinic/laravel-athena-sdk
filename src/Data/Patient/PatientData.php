@@ -92,7 +92,7 @@ readonly class PatientData extends AthenaData
             primaryProviderId: $data['primaryproviderid'] ?? null,
             privacyInformationVerified: self::toBool($data['privacyinformationverified'] ?? null),
             customFields: $data['customfields'] ?? [],
-            balances: BalanceData::fromArray($data['balances']) ?? [],
+            balances: array_map(fn($item) => BalanceData::fromArray($item), $data['balances'] ?? []),
         );
     }
 }
