@@ -22,6 +22,8 @@ readonly class ProviderData extends AthenaData
         public ?string $typeId = null,
         public ?string $ansiSpecialtyCode = null,
         public ?string $ansiSpecialtyName = null,
+
+        public ?int $providerGroupId = 1,
     ) {}
 
     public static function fromArray(array $data): static
@@ -42,6 +44,8 @@ readonly class ProviderData extends AthenaData
             typeId: $data['providertypeid'] ?? null,
             ansiSpecialtyCode: $data['ansispecialtycode'] ?? null,
             ansiSpecialtyName: $data['ansispecialtyname'] ?? null,
+
+            providerGroupId: $data['providergrouplist'] && is_array($data['providergrouplist']) ? (int)$data['providergrouplist'][0] : 1,
         );
     }
 }
