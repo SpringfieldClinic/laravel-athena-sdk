@@ -45,7 +45,7 @@ readonly class ProviderData extends AthenaData
             ansiSpecialtyCode: $data['ansispecialtycode'] ?? null,
             ansiSpecialtyName: $data['ansispecialtyname'] ?? null,
 
-            providerGroupId: $data['providergrouplist'] && is_array($data['providergrouplist']) ? (int)$data['providergrouplist'][0] : 1,
+            providerGroupId: isset($data['providergrouplist']) && is_array($data['providergrouplist']) ? (int)$data['providergrouplist'][0] : 1,
         );
     }
 }
