@@ -8,6 +8,8 @@ use ChrisReedIO\AthenaSDK\Data\AthenaData;
 readonly class InsuranceData extends AthenaData
 {
     public function __construct(
+        public ?int $patient_id = null,
+
         // Insurance provider information
         public ?string $irc_name = null,
         public ?string $insurance_phone = null,
@@ -78,6 +80,8 @@ readonly class InsuranceData extends AthenaData
     public static function fromArray(array $data): static
     {
         return new static(
+            patient_id: isset($data['patientid']) ? (int) $data['patientid'] : null,
+
             // Insurance provider information
             irc_name: $data['ircname'] ?? null,
             insurance_phone: $data['insurancephone'] ?? null,
