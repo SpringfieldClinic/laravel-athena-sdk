@@ -141,7 +141,7 @@ readonly class InsuranceData extends AthenaData
 
             copays: array_map(
                 fn ($item) => InsuranceCopayData::fromArray($item),
-                $data['copays'] ?? null
+                $data['copays'] ?? []
             ),
         );
     }
