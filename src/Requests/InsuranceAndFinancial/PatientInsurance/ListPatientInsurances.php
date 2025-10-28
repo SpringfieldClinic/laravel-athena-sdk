@@ -50,8 +50,11 @@ class ListPatientInsurances extends Request
         ]);
     }
 
-    public function createDtoFromResponse(Response $response): InsuranceData
+    public function createDtoFromResponse(Response $response): array
     {
-        return InsuranceData::fromArray($response->json()['insurances'] ?? []);
+        return array_map(
+            fn ($item) => InsuranceData::fromArray($item),
+            $response->json()['insurances'] ?? []
+        );
     }
 }
