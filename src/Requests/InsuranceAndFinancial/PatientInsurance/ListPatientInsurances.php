@@ -2,8 +2,10 @@
 
 namespace ChrisReedIO\AthenaSDK\Requests\InsuranceAndFinancial\PatientInsurance;
 
+use ChrisReedIO\AthenaSDK\Data\Insurance\InsuranceData;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * ListPatientInsurances
@@ -46,5 +48,10 @@ class ListPatientInsurances extends Request
             'showcancelled' => $this->showcancelled,
             'showfullssn' => $this->showfullssn,
         ]);
+    }
+
+    public function createDtoFromResponse(Response $response): InsuranceData
+    {
+        return InsuranceData::fromArray($response->json());
     }
 }
