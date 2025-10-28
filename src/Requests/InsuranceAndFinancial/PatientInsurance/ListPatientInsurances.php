@@ -52,6 +52,6 @@ class ListPatientInsurances extends Request
 
     public function createDtoFromResponse(Response $response): InsuranceData
     {
-        return InsuranceData::fromArray($response->json());
+        return InsuranceData::fromArray($response->json()['insurances'] ?? []);
     }
 }
